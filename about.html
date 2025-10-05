@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
@@ -8,20 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/347572dc37.js"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/347572dc37.js" crossorigin="anonymous"></script>
     <script src="js/script.js" defer></script>
-  </head>
-  <body>
+    <script type="module" src="./src/navBar.js" defer></script>
+</head>
+
+<body>
     <div class="container">
-      <header class="header">
-        <a href="index.html">
+        <header class="header" id="site-header">
+            <!-- <a href="index.html">
           <img class="logo-img" src="img/logo3.png" alt="logo" />
         </a>
         <nav>
@@ -31,211 +28,152 @@
             <li><a href="competences.html">Competences</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-        </nav>
-      </header>
+        </nav> -->
+        </header>
 
-      <div class="about-page">
-        <div class="about-content">
-          <div class="about-sidebar">
-            <div class="profile-section">
-              <img
-                src="img/profilepicgradient.png"
-                alt="Therese Paulsen"
-                class="about-profile-img"
-              />
+        <div class="about-page">
+            <div class="about-content">
+                <div class="about-sidebar">
+                    <div class="profile-section">
+                        <img src="img/profilepicgradient.png" alt="Therese Paulsen" class="about-profile-img" />
 
-              <a href="cv.pdf" class="download-cv-btn" download>Download CV</a>
+                        <a href="cv.pdf" class="download-cv-btn" download>Download CV</a>
 
-              <div class="quote-section">
-                <blockquote>
-                  "I'm an academic at heart - so I seek ways in which I can
-                  combine critical, analytical thinking with designing and
-                  developing."
-                </blockquote>
-              </div>
+                        <div class="quote-section">
+                            <blockquote>
+                                "I'm an academic at heart - so I seek ways in which I can combine critical, analytical thinking with designing and developing."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-right-content">
+                    <h1 class="page-title">About Me</h1>
+                    <div class="about-intro"></div>
+                    <div class="about-intro">
+                        <p>
+                            I'm a woman born in 1996 on a small island in Denmark. I live in Wynberg, Cape Town in a townhouse with my partner. I'm an academic particularly interested in the African continent. I've specialized in gender-based violence in South Africa, and hope to
+                            combine my passion for social justice with my multimediadesign journey. Read below for more information about me.
+                        </p>
+                    </div>
+
+                    <div class="about-main">
+                        <div class="info-grid">
+                            <div class="info-card education">
+                                <h3>Education</h3>
+                                <ul>
+                                    <li>
+                                        Currently studying Multimediadesign at The IBA International Business Academy
+                                    </li>
+                                    <li>
+                                        Master of Arts in African Studies from University of Copenhagen. An interdisciplinary program covering politics, religion, development, nature, economics, culture, etc.
+                                    </li>
+                                    <li>
+                                        Bachelor in Global Humanities from Roskilde University. An interdisciplinary program based on four dimensions: science & philosophy, text & sign, subjectivity & learning, history & culture. I did a subject combination of cultural encounters and social
+                                        psychology.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="info-card personality">
+                                <h3>Personality</h3>
+                                <ul>
+                                    <li>
+                                        Central traits: Detail-oriented, perfectionistic, curious, analytical, empathetic, sociable, bubbly
+                                    </li>
+                                    <li>
+                                        16 Personalities type: Protagonist (ENFJ-T). This result indicates that my personality combines charisma, empathy, and idealism, giving me a natural ability to inspire and lead others. I am highly attuned to people's feelings and motivations, and an effective
+                                        communicator. Some of my greatest struggles are that my idealistic nature sometimes can lead to disapointment, and my empathy can also be a challenge, as I take on others’ problems as they were my own.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="info-card interests">
+                                <h3>Interests</h3>
+                                <ul>
+                                    <li>
+                                        Academic: Social justice, in particular gender-based violence in South Africa. More generally I am interested in anything within humanities and social science, whether it be culture, psychology, language, philosophy.
+                                    </li>
+                                    <li>
+                                        At home: Gardening, cooking, reading, gaming with my partner, crotcheting, writing, painting, watching soccer, DJing
+                                    </li>
+                                    <li>
+                                        Out: Exploring Cape Town, hiking, winefarms, festivals, comedy, concerts (amapiano, 3 step, afrotech, deep house)
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="info-card style">
+                                <h3>Style</h3>
+                                <ul>
+                                    <li>
+                                        I like designing things that are fun, vibrant, warm, memorable and not necessarily fitting into the usual minimalistic paradigm
+                                    </li>
+                                    <li>
+                                        I love photography, mostly in nature, and enjoy experimenting with natural frames, textures, colors and lighting.
+                                    </li>
+                                    <li>
+                                        I am a nostalgic at heart, and like to draw inspiration from times that were more expressive and charming.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="about-right-content">
-            <h1 class="page-title">About Me</h1>
-            <div class="about-intro"></div>
-            <div class="about-intro">
-              <p>
-                I'm a woman born in 1996 on a small island in Denmark. I live in
-                Wynberg, Cape Town in a townhouse with my partner. I'm an
-                academic particularly interested in the African continent. I've
-                specialized in gender-based violence in South Africa, and hope
-                to combine my passion for social justice with my
-                multimediadesign journey. Read below for more information about
-                me.
-              </p>
-            </div>
-
-            <div class="about-main">
-              <div class="info-grid">
-                <div class="info-card education">
-                  <h3>Education</h3>
-                  <ul>
-                    <li>
-                      Currently studying Multimediadesign at The IBA
-                      International Business Academy
-                    </li>
-                    <li>
-                      Master of Arts in African Studies from University of
-                      Copenhagen. An interdisciplinary program covering
-                      politics, religion, development, nature, economics,
-                      culture, etc.
-                    </li>
-                    <li>
-                      Bachelor in Global Humanities from Roskilde University. An
-                      interdisciplinary program based on four dimensions:
-                      science & philosophy, text & sign, subjectivity &
-                      learning, history & culture. I did a subject combination
-                      of cultural encounters and social psychology.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="info-card personality">
-                  <h3>Personality</h3>
-                  <ul>
-                    <li>
-                      Central traits: Detail-oriented, perfectionistic, curious,
-                      analytical, empathetic, sociable, bubbly
-                    </li>
-                    <li>
-                      16 Personalities type: Protagonist (ENFJ-T). This result
-                      indicates that my personality combines charisma, empathy,
-                      and idealism, giving me a natural ability to inspire and
-                      lead others. I am highly attuned to people's feelings and
-                      motivations, and an effective communicator. Some of my
-                      greatest struggles are that my idealistic nature sometimes
-                      can lead to disapointment, and my empathy can also be a
-                      challenge, as I take on others’ problems as they were my
-                      own.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="info-card interests">
-                  <h3>Interests</h3>
-                  <ul>
-                    <li>
-                      Academic: Social justice, in particular gender-based
-                      violence in South Africa. More generally I am interested
-                      in anything within humanities and social science, whether
-                      it be culture, psychology, language, philosophy.
-                    </li>
-                    <li>
-                      At home: Gardening, cooking, reading, gaming with my
-                      partner, crotcheting, writing, painting, watching soccer,
-                      DJing
-                    </li>
-                    <li>
-                      Out: Exploring Cape Town, hiking, winefarms, festivals,
-                      comedy, concerts (amapiano, 3 step, afrotech, deep house)
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="info-card style">
-                  <h3>Style</h3>
-                  <ul>
-                    <li>
-                      I like designing things that are fun, vibrant, warm,
-                      memorable and not necessarily fitting into the usual
-                      minimalistic paradigm
-                    </li>
-                    <li>
-                      I love photography, mostly in nature, and enjoy
-                      experimenting with natural frames, textures, colors and
-                      lighting.
-                    </li>
-                    <li>
-                      I am a nostalgic at heart, and like to draw inspiration
-                      from times that were more expressive and charming.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <section class="testimonial-section">
-        <h1 class="page-title">Testimonials</h1>
-        <h2 class="sub-title">
-          What my teammates from Multimediadesign say about working with me
-        </h2>
+        <section class="testimonial-section">
+            <h1 class="page-title">Testimonials</h1>
+            <h2 class="sub-title">
+                What my teammates from Multimediadesign say about working with me
+            </h2>
 
-        <div class="testimonial-grid">
-          <div class="testimonial-card">
-            <p class="quote-text">
-              "Therese is a pleasure to work with. She is structured and always
-              one step ahead. Detail-oriented with a particularly keen eye for
-              research and analysis. She has a good work ethic and is ready to
-              solve problems, always with a smile on her face."
-            </p>
-            <p class="quote-author">~ Agnes</p>
-          </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote-text">
+                        "Therese is a pleasure to work with. She is structured and always one step ahead. Detail-oriented with a particularly keen eye for research and analysis. She has a good work ethic and is ready to solve problems, always with a smile on her face."
+                    </p>
+                    <p class="quote-author">~ Agnes</p>
+                </div>
 
-          <div class="testimonial-card">
-            <p class="quote-text">
-              Therese is incredibly wonderful to work with. She creates an
-              overview, has an eye for detail and always contributes with
-              creative solutions. Collaboration is both easy and inspiring
-              because she communicates clearly and openly. She is a natural
-              leader and an indispensable member of any team, whose energy,
-              drive and good mood are contagious and lift the entire group.
-            </p>
-            <p class="quote-author">~ Emma</p>
-          </div>
-        </div>
-      </section>
+                <div class="testimonial-card">
+                    <p class="quote-text">
+                        Therese is incredibly wonderful to work with. She creates an overview, has an eye for detail and always contributes with creative solutions. Collaboration is both easy and inspiring because she communicates clearly and openly. She is a natural leader
+                        and an indispensable member of any team, whose energy, drive and good mood are contagious and lift the entire group.
+                    </p>
+                    <p class="quote-author">~ Emma</p>
+                </div>
+            </div>
+        </section>
     </div>
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
 
-        <div class="footer-social">
-          <a
-            href="https://github.com/theresepaulsen"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/theresepaulsen"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/theresepaulsen/"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
+            <div class="footer-social">
+                <a href="https://github.com/theresepaulsen" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/theresepaulsen" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/theresepaulsen/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
 
-          <a
-            href="https://www.facebook.com/TheresePilborgPaulsen/"
-            target="_blank"
-            aria-label="Facebook Profile"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </div>
+                <a href="https://www.facebook.com/TheresePilborgPaulsen/" target="_blank" aria-label="Facebook Profile">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
 
-        <div class="footer-copyright">
-          <p>© 2025 Therese Paulsen. All rights reserved.</p>
+            <div class="footer-copyright">
+                <p>© 2025 Therese Paulsen. All rights reserved.</p>
+            </div>
         </div>
-      </div>
     </footer>
-  </body>
+</body>
+
 </html>
