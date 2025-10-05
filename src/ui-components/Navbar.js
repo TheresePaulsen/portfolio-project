@@ -1,6 +1,6 @@
 "use strict";
 
-import { navItems } from "../data/navItems";
+import { navItems } from "../data/navItems.js";
 
 export function createNavbar() {
     return `
