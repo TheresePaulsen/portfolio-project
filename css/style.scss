@@ -1347,96 +1347,43 @@ body {
     }
     .form-group {
         margin-bottom: 15px;
-        label {
-            font-size: 14px;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            font-size: 14px;
-            padding: 10px;
-        }
     }
-    .submit-btn {
-        font-size: 18px;
-        padding: 10px 20px;
+    label {
+        font-size: 14px;
     }
-    .confirmation-box {
-        padding: 30px 15px;
-        h2 {
-            font-size: 26px;
-        }
-        p {
-            font-size: 16px;
-        }
-    }
-    .footer {
-        padding: 20px 15px;
-        margin-top: 40px;
-        .footer-links a {
-            font-size: 16px;
-        }
-        .footer-social a {
-            font-size: 22px;
-        }
-        .footer-copyright p {
-            font-size: 14px;
-        }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 14px;
+        padding: 10px;
     }
 }
 
-// ----------------------------------------
-// Landscape Orientation (Mobile devices)
-// ----------------------------------------
-@media (max-width: 768px) and (orientation: landscape) {
-    .sidebar .profile-image {
-        height: 250px;
+.submit-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.confirmation-box {
+    padding: 30px 15px;
+    h2 {
+        font-size: 26px;
     }
-    .about-sidebar .profile-section .about-profile-img,
-    .comp-sidebar .profile-section .comp-profile-img {
-        height: 180px;
-    }
-    .portfolio-collage {
-        height: auto;
-    }
-    .illustrations {
-        height: 120px;
-        img {
-            width: 80px;
-        }
+    p {
+        font-size: 16px;
     }
 }
 
-// ----------------------------------------
-// Print Styles
-// ----------------------------------------
-@media print {
-    .header nav,
-    .footer,
-    .video-controls,
-    .submit-btn,
-    .download-cv-btn,
-    .case-studies-btn {
-        display: none;
+.footer {
+    padding: 20px 15px;
+    margin-top: 40px;
+    .footer-links a {
+        font-size: 16px;
     }
-    body {
-        background: white;
+    .footer-social a {
+        font-size: 22px;
     }
-    .sidebar,
-    .about-main,
-    .contact-form-container {
-        background: white;
-        color: black;
-    }
-    a {
-        color: black;
-        text-decoration: underline;
-    }
-    .portfolio-collage .shot,
-    .testimonial-card,
-    .info-card,
-    .mockup-img {
-        break-inside: avoid;
-        page-break-inside: avoid;
+    .footer-copyright p {
+        font-size: 14px;
     }
 }
