@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home page</title>
@@ -8,63 +9,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/347572dc37.js"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/347572dc37.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/navBar.js" defer></script>
+    <script type="module" src="./src/footer.js" defer></script>
     <script src="js/script.js" defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <header class="header">
-        <a href="index.html">
-          <img
-            class="logo-img"
-            src="img/logo3.png"
-            alt="Therese Paulsen's personal portfolio logo"
-          />
-        </a>
-        <nav aria-label="Main navigation">
-          <ul>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="competences.html">Competences</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+        <header class="header" id="site-header"></header>
 
-      <div class="main-content">
-        <div class="sidebar">
-          <h2>Therese Paulsen's</h2>
-          <h3>Personal Portfolio</h3>
-          <a class="btn" href="about.html">About Me</a>
-          <div class="profile-image">
-            <img src="img/profilepic.png" alt="A picture of Therese Paulsen" />
-          </div>
-        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Therese Paulsen's</h2>
+                <h3>Personal Portfolio</h3>
+                <a class="btn" href="about.html">About Me</a>
+                <div class="profile-image">
+                    <img src="img/profilepic.png" alt="A picture of Therese Paulsen" />
+                </div>
+            </div>
 
-        <div class="content">
-          <h1 class="lobster-regular">
-            The Work of Multimediadesigner Therese Paulsen
-          </h1>
-          <p class="intro">
-            Welcome to my portfolio. I am a front-end developer based in<br />
-            Cape Town who researches, designs and codes. I have a special<br />
-            interest in social justice.
-          </p>
+            <div class="content">
+                <h1 class="lobster-regular">
+                    The Work of Multimediadesigner Therese Paulsen
+                </h1>
+                <p class="intro">
+                    Welcome to my portfolio. I am a front-end developer based in<br /> Cape Town who researches, designs and codes. I have a special<br /> interest in social justice.
+                </p>
 
-          <div class="work-section">
-            <h4>Explore my work</h4>
-            <a
-              class="case-studies-btn"
-              href="case-studies.html"
-              aria-label="View all Case Studies"
-              >Case Studies</a
+                <div class="work-section">
+                    <h4>Explore my work</h4>
+                    <a class="case-studies-btn" href="case-studies.html" aria-label="View all Case Studies">Case Studies</a
             >
 
             <div class="portfolio-collage">
@@ -80,77 +56,19 @@
                 />
               </a>
 
-              <a
-                href="case-studies.html#real-life-project"
-                title="Go to Real-Life Project"
-                aria-label="View Real-Life Project: LadyBalance"
-              >
-                <img
-                  src="img/lbcase.png"
-                  alt="Desktop view of the LadyBalance campaign landing page."
-                  class="shot shot-2"
-                />
-              </a>
+                    <a href="case-studies.html#real-life-project" title="Go to Real-Life Project" aria-label="View Real-Life Project: LadyBalance">
+                        <img src="img/lbcase.png" alt="Desktop view of the LadyBalance campaign landing page." class="shot shot-2" />
+                    </a>
 
-              <a
-                href="case-studies.html#accessibility-project"
-                title="Go to Accessibility Project"
-                aria-label="View Accessibility Project: Gender-Based Violence in South Africa"
-              >
-                <img
-                  src="img/gbvcase.png"
-                  alt="Desktop view of the Gender-Based Violence website."
-                  class="shot shot-3"
-                />
-              </a>
+                    <a href="case-studies.html#accessibility-project" title="Go to Accessibility Project" aria-label="View Accessibility Project: Gender-Based Violence in South Africa">
+                        <img src="img/gbvcase.png" alt="Desktop view of the Gender-Based Violence website." class="shot shot-3" />
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
+    </div>
+    <footer class="footer" id="site-footer"></footer>
+</body>
 
-        <div class="footer-social">
-          <a
-            href="https://github.com/theresepaulsen"
-            target="_blank"
-            aria-label="GitHub Profile"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/theresepaulsen"
-            target="_blank"
-            aria-label="LinkedIn Profile"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/theresepaulsen/"
-            target="_blank"
-            aria-label="Instagram Profile"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a
-            href="https://www.facebook.com/TheresePilborgPaulsen/"
-            target="_blank"
-            aria-label="Facebook Profile"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </div>
-
-        <div class="footer-copyright">
-          <p>© 2025 Therese Paulsen. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  </body>
 </html>

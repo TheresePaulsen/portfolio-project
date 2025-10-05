@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Competences</title>
@@ -8,52 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/347572dc37.js"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/347572dc37.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/navBar.js" defer></script>
+    <script type="module" src="./src/footer.js" defer></script>
     <script src="js/script.js" defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <header class="header">
-        <a href="index.html">
-          <img
-            class="logo-img"
-            src="img/logo3.png"
-            alt="Therese Paulsen's personal portfolio logo"
-          />
-        </a>
-        <nav aria-label="Main navigation">
-          <ul>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="competences.html">Competences</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+        <header class="header" id="site-header"></header>
 
-      <div class="competences-page">
-        <div class="comp-content-grid">
-          <div class="comp-sidebar">
-            <div class="profile-section">
-              <img
-                src="img/profilepicgradient.png"
-                alt="Therese Paulsen professional profile picture with a colored gradient overlay."
-                class="comp-profile-img"
-              />
+        <div class="competences-page">
+            <div class="comp-content-grid">
+                <div class="comp-sidebar">
+                    <div class="profile-section">
+                        <img src="img/profilepicgradient.png" alt="Therese Paulsen professional profile picture with a colored gradient overlay." class="comp-profile-img" />
 
-              <a
-                href="cv.pdf"
-                class="download-cv-btn"
-                download
-                aria-label="Download CV PDF"
-                >Download CV</a
+                        <a href="cv.pdf" class="download-cv-btn" download aria-label="Download CV PDF">Download CV</a
               >
 
               <div class="brief-bio-section">
@@ -153,49 +126,6 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="footer-social">
-          <a
-            href="https://github.com/theresepaulsen"
-            target="_blank"
-            aria-label="GitHub Profile"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/theresepaulsen"
-            target="_blank"
-            aria-label="LinkedIn Profile"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/theresepaulsen/"
-            target="_blank"
-            aria-label="Instagram Profile"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a
-            href="https://www.facebook.com/TheresePilborgPaulsen/"
-            target="_blank"
-            aria-label="Facebook Profile"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </div>
-
-        <div class="footer-copyright">
-          <p>© 2025 Therese Paulsen. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <footer class="footer" id="site-footer"></footer>
   </body>
 </html>
