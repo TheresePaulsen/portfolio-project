@@ -1,0 +1,6 @@
+"use strict";
+
+export const footerItems = [
+    { title: "About", url: "about.html" },
+    { title: "Contact", url: "contact.html" },
+]
