@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Competences</title>
@@ -8,184 +9,118 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/347572dc37.js"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Lobster&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/347572dc37.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/navBar.js" defer></script>
+    <script type="module" src="./src/footer.js" defer></script>
     <script src="js/script.js" defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <header class="header">
-        <a href="index.html">
-          <img class="logo-img" src="img/logo3.png" alt="logo" />
-        </a>
-        <nav>
-          <ul>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="competences.html">Competences</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+        <header class="header" id="site-header"></header>
 
-      <div class="competences-page">
-        <div class="comp-content-grid">
-          <div class="comp-sidebar">
-            <div class="profile-section">
-              <img
-                src="img/profilepicgradient.png"
-                alt="Therese Paulsen"
-                class="comp-profile-img"
-              />
+        <div class="competences-page">
+            <div class="comp-content-grid">
+                <div class="comp-sidebar">
+                    <div class="profile-section">
+                        <img src="img/profilepicgradient.png" alt="Therese Paulsen" class="comp-profile-img" />
 
-              <a href="cv.pdf" class="download-cv-btn" download>Download CV</a>
+                        <a href="cv.pdf" class="download-cv-btn" download>Download CV</a>
 
-              <div class="brief-bio-section">
-                <h4>Brief Bio:</h4>
-                <ul>
-                  <li>
-                    Currently studying Multimediadesign at The IBA International
-                    Business Academy
-                  </li>
-                  <li>MA in African Studies from University of Copenhagen</li>
-                  <li>BA in Global Humanities from Roskilde University</li>
-                </ul>
-              </div>
+                        <div class="brief-bio-section">
+                            <h4>Brief Bio:</h4>
+                            <ul>
+                                <li>
+                                    Currently studying Multimediadesign at The IBA International Business Academy
+                                </li>
+                                <li>MA in African Studies from University of Copenhagen</li>
+                                <li>BA in Global Humanities from Roskilde University</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comp-main-area">
+                    <h1 class="page-title">Competences</h1>
+                    <h2 class="sub-title">What I can help your business with</h2>
+
+                    <div class="comp-main-list-wrapper">
+                        <div class="competence-list">
+                            <section class="comp-category">
+                                <h2>Visual content creation</h2>
+                                <ul>
+                                    <li>
+                                        Photography, video production, animations, graphic design
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section class="comp-category">
+                                <h2>Digital marketing & online presence</h2>
+                                <ul>
+                                    <li>Website design and development</li>
+                                    <li>SEO optimization</li>
+                                    <li>Social Media Content strategy and creation</li>
+                                </ul>
+                            </section>
+
+                            <section class="comp-category">
+                                <h2>Brand & communication</h2>
+                                <ul>
+                                    <li>Visual identity development and brand consistency</li>
+                                    <li>
+                                        Content creation for blogs, websites and marketing materials
+                                    </li>
+                                    <li>Digital advertizing design and campaign materials</li>
+                                </ul>
+                            </section>
+
+                            <section class="comp-category">
+                                <h2>Technical solutions</h2>
+                                <ul>
+                                    <li>
+                                        Responsive and accessible website development using HTML, CSS and JavaScript
+                                    </li>
+                                    <li>
+                                        User experience (UX) improvements through user testing to increase conversions
+                                    </li>
+                                    <li>E-commerce solutions and online store optimization</li>
+                                </ul>
+                            </section>
+
+                            <section class="comp-category">
+                                <h2>AI-Assisted services</h2>
+                                <ul>
+                                    <li>How to co-create with generative AI</li>
+                                    <li>Prompt engineering</li>
+                                    <li>
+                                        Reflections and best practices concerning bias, hallucinations, quality assurance, and ethical conduct
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+
+                        <div class="mmd-definition-box">
+                            <h3>In short, what does a multimediadesigner do?</h3>
+                            <ul>
+                                <li>Webdesign, UX and UI</li>
+                                <li>Programming (HTML, CSS, JavaScript)</li>
+                                <li>Graphic design</li>
+                                <li>Research</li>
+                                <li>Communication (both visual and written)</li>
+                                <li>Video and photo</li>
+                                <li>Digital marketing</li>
+                                <li>Business understanding</li>
+                                <li>AI management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="comp-main-area">
-            <h1 class="page-title">Competences</h1>
-            <h2 class="sub-title">What I can help your business with</h2>
-
-            <div class="comp-main-list-wrapper">
-              <div class="competence-list">
-                <section class="comp-category">
-                  <h2>Visual content creation</h2>
-                  <ul>
-                    <li>
-                      Photography, video production, animations, graphic design
-                    </li>
-                  </ul>
-                </section>
-
-                <section class="comp-category">
-                  <h2>Digital marketing & online presence</h2>
-                  <ul>
-                    <li>Website design and development</li>
-                    <li>SEO optimization</li>
-                    <li>Social Media Content strategy and creation</li>
-                  </ul>
-                </section>
-
-                <section class="comp-category">
-                  <h2>Brand & communication</h2>
-                  <ul>
-                    <li>Visual identity development and brand consistency</li>
-                    <li>
-                      Content creation for blogs, websites and marketing
-                      materials
-                    </li>
-                    <li>Digital advertizing design and campaign materials</li>
-                  </ul>
-                </section>
-
-                <section class="comp-category">
-                  <h2>Technical solutions</h2>
-                  <ul>
-                    <li>
-                      Responsive and accessible website development using HTML,
-                      CSS and JavaScript
-                    </li>
-                    <li>
-                      User experience (UX) improvements through user testing to
-                      increase conversions
-                    </li>
-                    <li>E-commerce solutions and online store optimization</li>
-                  </ul>
-                </section>
-
-                <section class="comp-category">
-                  <h2>AI-Assisted services</h2>
-                  <ul>
-                    <li>How to co-create with generative AI</li>
-                    <li>Prompt engineering</li>
-                    <li>
-                      Reflections and best practices concerning bias,
-                      hallucinations, quality assurance, and ethical conduct
-                    </li>
-                  </ul>
-                </section>
-              </div>
-
-              <div class="mmd-definition-box">
-                <h3>In short, what does a multimediadesigner do?</h3>
-                <ul>
-                  <li>Webdesign, UX and UI</li>
-                  <li>Programming (HTML, CSS, JavaScript)</li>
-                  <li>Graphic design</li>
-                  <li>Research</li>
-                  <li>Communication (both visual and written)</li>
-                  <li>Video and photo</li>
-                  <li>Digital marketing</li>
-                  <li>Business understanding</li>
-                  <li>AI management</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
+    <footer class="footer" id="site-footer"></footer>
+</body>
 
-        <div class="footer-social">
-          <a
-            href="https://github.com/theresepaulsen"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/theresepaulsen"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/theresepaulsen/"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a
-            href="https://www.facebook.com/TheresePilborgPaulsen/"
-            target="_blank"
-            aria-label="Facebook Profile"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </div>
-
-        <div class="footer-copyright">
-          <p>© 2025 Therese Paulsen. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  </body>
 </html>
