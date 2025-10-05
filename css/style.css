@@ -1,0 +1,1485 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+body {
+  background: #FFE1A6;
+  min-height: 100vh;
+}
+
+h2, h3 {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1, h4 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sub-title {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #FFE1A6;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #FFE1A6;
+  border-bottom: 2px solid black;
+}
+.header .logo-img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+.header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.header nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* FIX 1: Add display: inline-block to allow reliable use of transform. */
+  display: inline-block;
+  /* NEW: Position relative allows us to place the animated underline relative to the link. */
+  position: relative;
+  /* FIX 2: Add transform to the transition property. */
+  transition: color 0.3s ease, transform 0.3s ease;
+  /* --- Animated Underline Setup (Invisible by default) --- */
+}
+.header nav ul li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px; /* Position below the text */
+  left: 0;
+  background-color: #1F4D33; /* Dark green line color */
+  /* Use transform to set initial width to zero without shifting content */
+  transform: scaleX(0);
+  transform-origin: center; /* Ensures the line expands evenly from the middle */
+  transition: transform 0.3s ease-out;
+}
+.header nav ul li a:hover {
+  color: #1F4D33;
+  /* Scaling Effect */
+  transform: scale(1.05);
+}
+.header nav ul li a:hover:after {
+  /* Animated Underline Effect: Expands to full width */
+  transform: scaleX(1);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 500px;
+  align-items: stretch;
+}
+
+.sidebar {
+  background: #1F4D33;
+  color: white;
+  padding: 30px 25px 0 25px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  text-align: right;
+}
+.sidebar h3 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+.sidebar .btn {
+  background: #EA9377;
+  color: black;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  width: 50%;
+}
+.sidebar .btn:hover {
+  background: #FFE1A6;
+  transform: scale(1.05);
+}
+.sidebar .profile-image {
+  width: calc(100% + 25px);
+  height: 400px;
+  border-radius: 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: -25px;
+}
+.sidebar .profile-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content {
+  padding: 40px;
+  background: #FFE1A6;
+}
+.content .intro {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: black;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.work-section {
+  background: #FFE1A6;
+  border: 5px solid #EA9377;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+}
+.work-section h4 {
+  font-size: 22px;
+  color: black;
+  margin-bottom: 15px;
+}
+.work-section .case-studies-btn {
+  background: linear-gradient(to bottom, #EA9377, #508E65);
+  color: white;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 10px 25px;
+  margin-bottom: 25px;
+}
+.work-section .case-studies-btn:hover {
+  background: #1F4D33;
+  transform: scale(1.05);
+}
+
+.portfolio-collage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin-top: 40px;
+}
+
+.portfolio-collage .shot {
+  position: absolute;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.portfolio-collage .shot:hover {
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+.shot-1 {
+  width: 56%;
+  top: 10px;
+  left: 2%;
+  z-index: 3;
+}
+
+.shot-2 {
+  width: 40%;
+  top: -40px;
+  left: 50%;
+  z-index: 4;
+}
+
+.shot-3 {
+  width: 50%;
+  top: 100px;
+  left: 47%;
+  z-index: 4;
+}
+
+.about-page {
+  padding: 20px 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.about-right-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.about-right-content .page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-intro {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.about-intro p {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  color: black;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: -20px;
+  padding-top: 40px;
+}
+.about-sidebar .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.about-sidebar .profile-section .about-profile-img {
+  width: 100%;
+  max-width: 250px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.about-sidebar .profile-section .download-cv-btn {
+  background: linear-gradient(to bottom, #EA9377, #508E65);
+  color: white;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+.about-sidebar .profile-section .download-cv-btn:hover {
+  background: #1F4D33;
+  transform: scale(1.05);
+}
+.about-sidebar .quote-section {
+  background: #FFE1A6;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #EA9377;
+}
+.about-sidebar .quote-section blockquote {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.4;
+  color: black;
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+.about-main {
+  background: #1F4D33;
+  border-radius: 5px;
+  padding: 40px;
+}
+.about-main .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.about-main .info-grid .info-card {
+  background: #FFD2C3;
+  border-radius: 5px;
+  border: 4px solid #FFE1A6;
+  padding: 25px;
+}
+.about-main .info-grid .info-card h3 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.about-main .info-grid .info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-main .info-grid .info-card ul li {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: black;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
+}
+.about-main .info-grid .info-card ul li:before {
+  content: "•";
+  color: #1F4D33;
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.about-main .info-grid .info-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+.competences-page {
+  padding: 20px 0;
+}
+
+.comp-content-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.comp-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: -60px;
+  padding-top: 40px;
+}
+.comp-sidebar .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.comp-sidebar .profile-section .comp-profile-img {
+  width: 100%;
+  max-width: 250px;
+  height: 400px;
+  margin-top: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.comp-sidebar .profile-section .download-cv-btn {
+  background: linear-gradient(to bottom, #EA9377, #508E65);
+  color: white;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+.comp-sidebar .profile-section .download-cv-btn:hover {
+  background: #1F4D33;
+  transform: scale(1.05);
+}
+.comp-sidebar .brief-bio-section {
+  background: #FFD2C3;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 3px solid #EA9377;
+  margin-top: 10px;
+}
+.comp-sidebar .brief-bio-section h4 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 15px;
+}
+.comp-sidebar .brief-bio-section ul {
+  list-style: none;
+  padding: 0;
+}
+.comp-sidebar .brief-bio-section ul li {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.4;
+  color: black;
+  margin-bottom: 25px;
+}
+
+.comp-main-area {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.comp-main-area .page-title {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+.comp-main-area .sub-title {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.comp-main-list-wrapper {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 30px;
+}
+
+.competence-list {
+  display: flex;
+  flex-direction: column;
+}
+.competence-list .comp-category h2 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  color: #1F4D33;
+  border-bottom: 2px solid #1F4D33;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.competence-list .comp-category:not(:first-child) {
+  margin-top: 35px;
+}
+.competence-list .comp-category ul {
+  list-style: none;
+  padding-left: 0;
+}
+.competence-list .comp-category ul li {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 5px;
+}
+.competence-list .comp-category ul li:before {
+  content: "•";
+  color: #1F4D33;
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.mmd-definition-box {
+  width: 100%;
+  background: #FFD2C3;
+  border-radius: 5px;
+  border: 3px solid #EA9377;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  align-self: start;
+  position: sticky;
+  top: 20px;
+  z-index: 5;
+}
+.mmd-definition-box h3 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 15px;
+}
+.mmd-definition-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+.mmd-definition-box ul li {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: black;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: 15px;
+}
+.mmd-definition-box ul li:before {
+  content: "•";
+  color: #1F4D33;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.contact-main {
+  padding: 40px;
+  background: #FFE1A6;
+  text-align: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  /* CHANGE: Increase max-width to give the content more room on the right */
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* --- Left Column: Form Placeholder --- */
+.form-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Right Column: Details and Illustrations --- */
+.details-and-illustrations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text and illustrations to the left */
+  gap: 20px;
+  text-align: left;
+}
+
+.contact-details p {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 2.2;
+  color: black;
+}
+.contact-details p span {
+  font-weight: bold;
+}
+.contact-details p span a {
+  /* FIX: Explicitly set the color to black */
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Ensure smooth hover */
+}
+.contact-details p span a:hover {
+  color: #1F4D33;
+}
+
+.illustrations {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Keep height for spacing */
+  margin-top: 80px;
+  text-align: right;
+  /* Positioning the individual images */
+}
+.illustrations img {
+  position: absolute;
+  height: auto;
+}
+.illustrations img:nth-child(1) { /* Pig (Higher and more visible) */
+  width: 150px;
+  right: 140px; /* Push the pig significantly further left for separation */
+  bottom: 45px; /* Lift the pig much higher */
+  z-index: 2; /* Ensure pig is visually in front of the elephant */
+}
+.illustrations img:nth-child(2) { /* Elephant (Lower, grounding element) */
+  width: 190px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+.illustrations .illustration-note {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  color: #555;
+  text-shadow: none;
+  position: absolute;
+  /* FINAL FIX: Aggressively push the note right and up to clear the elephant */
+  top: -40px;
+  right: -50px; /* Pushes it 30 pixels past the edge of its container */
+  line-height: 1.4;
+  max-width: 150px;
+  text-align: right;
+}
+
+.footer {
+  background: #1F4D33;
+  color: white;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+.footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer .footer-links {
+  display: flex;
+  gap: 40px;
+}
+.footer .footer-links a {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  text-decoration: none !important;
+  border: none;
+}
+.footer .footer-links a:hover {
+  color: #EA9377;
+}
+.footer .footer-links a i {
+  display: block;
+  /* NEW: Ensure the icon element itself isn't causing a line */
+  text-decoration: none;
+  border: none;
+}
+.footer .footer-social {
+  display: flex;
+  gap: 25px;
+}
+.footer .footer-social a {
+  color: white;
+  font-size: 28px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer .footer-social a:hover {
+  color: #EA9377;
+  transform: scale(1.1);
+}
+.footer .footer-social a i {
+  display: block;
+}
+.footer .footer-copyright p {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: white;
+  margin: 0;
+}
+
+.testimonial-section {
+  padding: 40px 0;
+  margin-top: 40px;
+  border-top: 2px solid #EA9377;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for cards */
+  gap: 65px;
+  padding: 0 10px;
+}
+
+.testimonial-card {
+  background: #FFE1A6;
+  padding: 40px;
+  border-radius: 15px;
+  /* Use a double border effect with box-shadow for a clean, distinct look */
+  box-shadow: 0 0 0 6px #1F4D33;
+  text-align: left;
+  height: 100%; /* Ensures cards in the grid are equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quote-text {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  color: black;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.quote-author {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1F4D33;
+  text-align: right;
+  margin-top: auto; /* Pushes the author to the bottom */
+}
+
+/* === CONTACT FORM STYLES === */
+.contact-form-container {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid #1F4D33;
+  box-shadow: 0 0 0 6px #EA9377; /* Pink border outside the green border */
+  display: flex; /* Helps manage the form and confirmation box layout */
+  flex-direction: column;
+  height: 100%; /* Important for grid alignment */
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+.form-group input[type=text],
+.form-group input[type=email],
+.form-group textarea {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #EA9377;
+  box-shadow: 0 0 0 2px rgba(255, 192, 203, 0.5); /* Subtle pink glow on focus */
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit Button Style */
+.submit-btn, .confirmation-box .close-btn {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* FIX: Now uses your pre-defined $button-gradient */
+  background: linear-gradient(to bottom, #EA9377, #508E65);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px; /* Fully rounded pill button */
+  cursor: pointer;
+  transition: transform 0.1s, background 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submit-btn:hover, .confirmation-box .close-btn:hover {
+  /* Updated hover state: For a pressed look, we'll use a solid color 
+     that is dark green, which you have defined as $sidebar-bg. */
+  background: #1F4D33;
+  /* Hover effect: reduce shadow and move button down */
+  box-shadow: 0 2px 0 #EA9377;
+  transform: translateY(2px);
+}
+
+.submit-btn:active, .confirmation-box .close-btn:active {
+  /* Click effect: remove shadow and fully press button */
+  transform: translateY(4px);
+  box-shadow: none;
+  /* Use a darker green for the pressed effect */
+  background: rgb(16.3611111111, 40.6388888889, 26.9166666667);
+}
+
+/* Confirmation Box Style */
+.confirmation-box {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.confirmation-box h2 {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #1F4D33;
+  margin-bottom: 15px;
+}
+
+.confirmation-box p {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.confirmation-box .close-btn {
+  /* Reuse the styling of the submit button */
+  max-width: 200px; /* Limit button width in confirmation box */
+}
+
+/* Utility Class */
+.hidden {
+  display: none !important;
+}
+
+.contact-details p span a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-details p span a:hover {
+  color: #EA9377;
+}
+
+/* ------------------------------------------- */
+/* --- NEW CASE STUDIES PAGE STYLES --- */
+/* ------------------------------------------- */
+.case-studies-page {
+  padding: 40px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-text {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: black;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Horizontal Divider matching the header */
+.divider {
+  width: 100%;
+  max-width: 900px;
+  height: 2px;
+  background-color: #EA9377;
+  margin: 40px auto;
+}
+
+.case-study-item {
+  margin-bottom: 60px;
+}
+
+.case-study-title {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #1F4D33; /* Dark green for the title */
+  margin-bottom: 15px;
+}
+
+.project-details {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  /* FIX: This was the main container margin. We are moving this spacing 
+          responsibility to the individual paragraphs. */
+  color: #333;
+  margin-bottom: 0;
+}
+
+.project-description {
+  /* Merged properties from .project-meta */
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  font-style: normal; /* Ensure no italic */
+  margin-top: 10px;
+  margin-bottom: 25px; /* Existing vertical spacing between paragraphs */
+}
+
+.extra-space-top {
+  margin-top: 15px;
+}
+
+.project-link {
+  font-weight: bold;
+  color: #1F4D33;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* CRITICAL FIX: Anchor tags are inline and ignore vertical margins. Make it a block element. */
+  display: block;
+}
+
+.project-links-group {
+  /* Use flexbox to easily manage stacking */
+  display: flex;
+  flex-direction: column;
+  /* Sets the small space after the entire link block before the mockups start */
+  margin-bottom: -10px;
+}
+
+.project-link-label {
+  /* Style for the "Links:" text */
+  font-weight: bold;
+  color: #1F4D33;
+  margin-bottom: -10px; /* Small space below the label */
+  margin-top: 10px; /* Separates the links block from the software description above */
+}
+
+.project-link.stacked-link {
+  /* Force links to take up full width to stack */
+  display: block;
+  /* Reduce vertical space between the links */
+  margin-bottom: -15px;
+  margin-right: 0; /* Remove previous horizontal margin */
+}
+
+/* Mockup Layout - Desktop Styles (Updated to remove the white box/borders/shadows) */
+.project-mockup {
+  /* --- FIX: Removed white background and box styling from desktop/default view --- */
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+.desktop-mockup-wrapper {
+  /* Adjusted width to create spacing on desktop */
+  width: 80%;
+  max-width: 650px;
+  margin-right: 20px; /* Added spacing between desktop and mobile on desktop view */
+  z-index: 5;
+}
+
+.mobile-mockup-wrapper {
+  /* Adjusted width to create spacing on desktop */
+  width: 30%;
+  max-width: 200px;
+  position: relative;
+  top: 20px;
+  z-index: 15;
+}
+
+.mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Kept a subtle shadow on the images themselves */
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mockup-spacer {
+  /* Adjust this value to control the vertical distance between the two rows */
+  height: 30px;
+  width: 100%;
+}
+
+.branding-assets {
+  display: grid;
+  /* Two columns: Logo column (1fr) and Animation column (1fr) */
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  /* Adds the space below the mockups (project-mockup is above this) */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  align-items: center; /* Vertically center the items in the row */
+}
+
+.bold-logo-wrapper {
+  /* Logo container on the left */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.bold-logo-img {
+  /* Styles for the pink and black logo, maxing out at 250px wide */
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.animation {
+  /* FIX: Removed @include flex-center; and adjusted display */
+  display: block;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  /* These height values are now critical for reserving the space */
+  height: 250px;
+  min-height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bold-animation-video {
+  /* Style for the video element itself */
+  width: 100%;
+  height: 100%; /* CRITICAL: Ensures video fills the 250px container */
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Control Button Styles --- */
+.video-controls {
+  /* Keep position: absolute and z-index to place over video */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.video-controls button {
+  /* Reusing your button mixin for consistent style */
+  background: #EA9377;
+  color: white;
+  text-decoration: none;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%; /* Makes the button round */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.video-controls button:hover {
+  background: #1F4D33;
+  transform: scale(1.05);
+}
+.video-controls button:hover {
+  /* Override transform from mixin to prevent movement */
+  transform: none;
+  background: #1F4D33;
+}
+.video-controls button i {
+  font-size: 16px;
+}
+
+@media (max-width: 992px) {
+  .header nav ul {
+    gap: 15px;
+  }
+  .header nav ul li a {
+    font-size: 18px;
+  }
+  .about-main .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .comp-main-list-wrapper {
+    grid-template-columns: 1fr; /* List and Box now stack vertically */
+    gap: 20px;
+  }
+  .mmd-definition-box {
+    margin-top: 0;
+    align-self: unset;
+    order: 2;
+  }
+  .competence-list {
+    order: 1;
+  }
+}
+@media (max-width: 768px) {
+  .main-content,
+  .about-content,
+  .comp-content-grid { /* Competences Page */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+    align-items: center;
+  }
+  .header {
+    flex-direction: column;
+    padding: 15px 10px;
+  }
+  .header nav ul {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header nav ul li a {
+    font-size: 16px;
+  }
+  .sidebar {
+    padding: 20px;
+    order: 2;
+    margin-top: 0;
+  }
+  .sidebar .profile-image {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .content {
+    order: 1;
+    padding: 20px;
+  }
+  .portfolio-collage {
+    height: auto;
+  }
+  .portfolio-collage .shot {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+    transform: none !important;
+  }
+  .about-sidebar {
+    order: 2;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .about-right-content {
+    order: 1;
+    padding-top: 0;
+    padding-right: 0;
+  }
+  .comp-sidebar {
+    position: static;
+    order: 2;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .comp-main-area {
+    order: 1;
+    padding-top: 0;
+    padding-right: 0;
+  }
+  .comp-sidebar .profile-section .comp-profile-img,
+  .about-sidebar .profile-section .about-profile-img {
+    max-width: 180px;
+    height: 220px;
+  }
+  .brief-bio-section,
+  .mmd-definition-box {
+    padding: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  .footer .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer .footer-links a {
+    font-size: 18px;
+  }
+  .footer .footer-social a {
+    font-size: 24px;
+  }
+  .footer .footer-copyright p {
+    font-size: 16px;
+  }
+}
+/* --- Responsive Adjustments for Contact Page --- */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Stack the columns vertically */
+    padding: 0 20px;
+  }
+  .contact-grid > div:nth-child(1) {
+    order: 1;
+  }
+  /* Assuming the contact details/illustrations are the second item: Give it order 2 (comes last) */
+  .contact-grid > div:nth-child(2) {
+    order: 2;
+  }
+  .details-and-illustrations {
+    order: -1; /* Move the details column above the form placeholder on mobile */
+    align-items: center;
+    text-align: center;
+  }
+  .contact-details {
+    text-align: center;
+  }
+  .illustrations {
+    /* Center the illustrations block horizontally */
+    text-align: center;
+    margin-top: 20px;
+    /* Keep height, but allow images to center */
+    height: 150px;
+  }
+  .illustrations img {
+    /* Remove absolute positioning to place them in the document flow */
+    position: relative;
+    display: inline-block; /* Allows them to be centered by text-align: center */
+    /* Reset positioning inherited from desktop */
+    right: unset;
+    bottom: unset;
+    /* Reset Z-index */
+    z-index: 0;
+    /* Set a fixed size without !important */
+    width: 100px;
+    height: auto;
+    /* Ensure they are displayed inline next to each other */
+    margin: 0 5px;
+  }
+  .illustrations img:nth-child(1),
+  .illustrations img:nth-child(2) {
+    width: 100px; /* Ensure specific selectors don't block the width */
+    right: unset;
+    bottom: unset;
+  }
+}
+@media (max-width: 992px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on tablet/mobile */
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .case-studies-page {
+    padding: 10px 20px;
+  }
+  .project-mockup {
+    /* Reset background, border, and shadow to remove the "white box" */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0; /* Remove padding */
+    /* Arrange the mockups side-by-side horizontally for mobile */
+    flex-direction: row;
+    justify-content: space-evenly; /* Creates space between them */
+    align-items: flex-start;
+  }
+  .desktop-mockup-wrapper,
+  .mobile-mockup-wrapper {
+    /* Adjust width to fit two elements side-by-side with spacing */
+    width: 48%;
+    max-width: none;
+    margin: 0;
+    top: 0;
+  }
+  .mobile-mockup-wrapper {
+    margin-top: 0;
+  }
+  .mockup-label {
+    position: static;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  /* Add this inside the @media (max-width: 768px) block */
+  .branding-assets {
+    /* Stack the logo and animation vertically on mobile */
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .ladybalance-mockup {
+    /* Stack all components vertically on mobile, like the other case studies */
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=style.css.map */

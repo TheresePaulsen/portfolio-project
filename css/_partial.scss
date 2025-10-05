@@ -1,0 +1,55 @@
+// Variables 
+$primary-bg: #FFE1A6;
+$sidebar-bg: #1F4D33;
+$hover-link: #1F4D33; 
+$pink-border: #EA9377;
+$hover-color: #FFE1A6;
+$info-card: #FFD2C3;
+$button-gradient: linear-gradient(to bottom, #EA9377, #508E65);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-style($bg-color, $hover-color, $text-color: black) {
+  background: $bg-color;
+  color: $text-color;
+  text-decoration: none;
+  @include handlee-regular;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block; 
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  
+  &:hover {
+    background: $hover-color;
+    transform: scale(1.05);
+  }
+}
+
+@mixin lobster-font {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin handlee-regular {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin red-hat-display {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

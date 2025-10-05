@@ -1,0 +1,1514 @@
+@use 'partial' as *; // henter partialfil ind i style.scss som modul 
+
+// GLOBAL & HOME PAGE STYLES
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+body {
+  background: $primary-bg;
+  min-height: 100vh;
+  //padding: 20px 20px 0 20px
+}
+
+h2, h3 {
+  @include lobster-font;
+}
+
+h1, h4 {
+  @include handlee-regular;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sub-title {
+    @include handlee-regular;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: $primary-bg;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: $primary-bg;
+  border-bottom: 2px solid black;
+  
+    .logo-img {
+  width: 120px;      
+  height: auto;      
+  display: block;    
+}
+  
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      
+      li {
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 24px;
+          letter-spacing: 0.5px;
+          @include handlee-regular;
+          
+          /* FIX 1: Add display: inline-block to allow reliable use of transform. */
+          display: inline-block; 
+          
+          /* NEW: Position relative allows us to place the animated underline relative to the link. */
+          position: relative; 
+          
+          /* FIX 2: Add transform to the transition property. */
+          transition: color 0.3s ease, transform 0.3s ease; 
+
+          /* --- Animated Underline Setup (Invisible by default) --- */
+          &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px; /* Position below the text */
+            left: 0;
+            background-color: $hover-link; /* Dark green line color */
+            
+            /* Use transform to set initial width to zero without shifting content */
+            transform: scaleX(0); 
+            transform-origin: center; /* Ensures the line expands evenly from the middle */
+            transition: transform 0.3s ease-out; 
+          }
+
+          &:hover {
+            color: $hover-link;
+            
+            /* Scaling Effect */
+            transform: scale(1.05);
+          }
+          
+          &:hover:after {
+            /* Animated Underline Effect: Expands to full width */
+            transform: scaleX(1); 
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 500px;
+  align-items: stretch;
+}
+
+.sidebar {
+  background: $sidebar-bg;
+  color: white;
+  padding: 30px 25px 0 25px; 
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-self: start; 
+  
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-align: right;
+  }
+  
+  h3 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+.btn {
+  @include button-style($pink-border, $hover-color);
+  width: 50%;
+}
+  
+  .profile-image {
+    width: calc(100% + 25px); 
+    height: 400px;
+    border-radius: 0;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: -25px; 
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+
+.content {
+  padding: 40px;
+  background: $primary-bg;
+  
+
+  .intro {
+   @include handlee-regular;
+    text-align: center;
+    color: black;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.work-section {
+  background: $primary-bg;
+  border: 5px solid $pink-border;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  
+  h4 {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 15px;
+  }
+  
+.case-studies-btn {
+  @include button-style($button-gradient, $sidebar-bg, white); 
+  padding: 10px 25px;
+  margin-bottom: 25px;
+}
+}
+
+.portfolio-collage {
+  position: relative;
+  width: 100%;
+  height: 420px;           
+  margin-top: 40px;
+}
+
+.portfolio-collage .shot {
+  position: absolute;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    z-index: 5;
+  }
+}
+
+.shot-1 {
+  width: 56%;              
+  top: 10px;
+  left: 2%;
+  z-index: 3;
+}
+
+.shot-2 {
+  width: 40%;        
+  top: -40px;        
+  left: 50%;         
+  z-index: 4;        
+}
+
+.shot-3 {
+  width: 50%;              
+  top: 100px;
+  left: 47%;               
+  z-index: 4;              
+}
+
+// ABOUT PAGE STYLES
+.about-page {
+  padding: 20px 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start; 
+}
+
+.about-right-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; 
+    
+    .page-title {
+        text-align: center; 
+        margin-bottom: 20px; 
+    }
+}
+
+.about-intro {
+  text-align: center; 
+  margin-bottom: 20px; 
+  
+  p {
+    @include handlee-regular;
+    font-size: 16px;
+    line-height: 1.6;
+    color: black;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: -20px; // Final adjusted position
+  padding-top: 40px; 
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+    .about-profile-img {
+      width: 100%;
+      max-width: 250px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .download-cv-btn {
+        @include button-style($button-gradient, $sidebar-bg, white); 
+        padding: 10px 25px;
+        margin-top: 20px;
+    }
+  }
+  
+  .quote-section {
+    background: $primary-bg;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid $pink-border;
+    
+    blockquote {
+      @include handlee-regular;
+      font-size: 16px;
+      line-height: 1.4;
+      color: black;
+      text-align: center;
+      font-style: italic;
+      margin: 0;
+    }
+  }
+}
+
+.about-main {
+  background: $sidebar-bg;
+  border-radius: 5px;
+  padding: 40px;
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    
+    .info-card {
+      background: $info-card;
+      border-radius: 5px;
+      border: 4px solid $primary-bg;
+      padding: 25px;
+
+      h3 {
+        @include handlee-regular;
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          @include red-hat-display;
+          font-size: 14px;
+          color: black;
+          line-height: 1.4;
+          margin-bottom: 10px;
+          position: relative;
+          padding-left: 15px;
+          
+          &:before {
+            content: "•";
+            color: $sidebar-bg;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// COMPETENCES PAGE STYLES
+.competences-page {
+  padding: 20px 0;
+}
+
+.comp-content-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start; 
+}
+
+.comp-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: -60px; 
+  padding-top: 40px; 
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+    .comp-profile-img {
+      width: 100%;
+      max-width: 250px;
+      height: 400px;
+      margin-top: 40px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    // CORRECTLY DEFINED: Style definition for the Competences Page button
+    .download-cv-btn { 
+        @include button-style($button-gradient, $sidebar-bg, white); 
+        padding: 10px 25px;
+        margin-top: 20px;
+    }
+
+  }
+
+  .brief-bio-section {
+    background: $info-card; 
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 3px solid $pink-border;
+    margin-top: 10px; 
+
+    
+    h4 {
+      @include handlee-regular;
+      font-weight: bold;
+      font-size: 18px;
+      color: black;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        @include red-hat-display;
+        font-size: 14px;
+        line-height: 1.4;
+        color: black;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+.comp-main-area {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; 
+    padding-right: 20px; 
+    
+    .page-title {
+        @include handlee-regular;
+        font-weight: bold;
+        font-size: 32px;
+        color: black;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .sub-title {
+        @include handlee-regular;
+        font-size: 20px;
+         font-weight: bold;
+        color: black;
+        margin-bottom: 50px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.comp-main-list-wrapper {
+    display: grid;
+    // Creates the two right-hand columns
+    grid-template-columns: 2.2fr 1fr; 
+    gap: 30px; 
+}
+
+
+.competence-list {
+    display: flex;
+    flex-direction: column;
+    // REMOVED: gap: 20px; to use margin-top on individual categories instead for more control
+    
+    .comp-category {
+        
+        h2 {
+            @include handlee-regular;
+            font-weight: bold;
+            font-size: 22px;
+            color: $sidebar-bg;
+            border-bottom: 2px solid $sidebar-bg;
+            display: inline-block; 
+            margin-bottom: 10px;
+        }
+        
+        // This rule applies margin-top to all categories *except* the first one.
+        // It provides the vertical separation that the user wants to keep, 
+        // while ensuring the first h2 (which is the first category) is not pushed down.
+        &:not(:first-child) {
+            margin-top: 35px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            
+            li {
+                @include red-hat-display;
+                font-size: 16px;
+                color: black;
+                line-height: 1.6;
+                position: relative;
+                padding-left: 15px;
+                margin-bottom: 5px;
+                
+                &:before {
+                    content: "•";
+                    color: $sidebar-bg;
+                    font-size: 16px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+.mmd-definition-box {
+    width: 100%; 
+    background: $info-card;
+    border-radius: 5px;
+    border: 3px solid $pink-border;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    align-self: start; 
+    position: sticky;
+    top: 20px; 
+    z-index: 5;
+    
+    h3 {
+        @include handlee-regular;
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+        margin-bottom: 15px;
+    }
+    
+    ul {
+        list-style: none;
+        padding-left: 0;
+        
+        li {
+            @include red-hat-display;
+            font-size: 14px;
+            color: black;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+            
+            &:before {
+                content: "•";
+                color: $sidebar-bg;
+                font-size: 14px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+// CONTACT PAGE STYLES
+.contact-main {
+    padding: 40px;
+    background: $primary-bg;
+    text-align: center;
+}
+
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px;
+    /* CHANGE: Increase max-width to give the content more room on the right */
+    max-width: 1000px; 
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* --- Left Column: Form Placeholder --- */
+.form-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* --- Right Column: Details and Illustrations --- */
+.details-and-illustrations {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text and illustrations to the left */
+    gap: 20px;
+    text-align: left;
+}
+
+.contact-details {
+    p {
+        @include red-hat-display;
+        font-size: 18px;
+        line-height: 2.2;
+        color: black;
+        
+        span {
+            font-weight: bold;
+            
+            a {
+                /* FIX: Explicitly set the color to black */
+                color: black; 
+                text-decoration: none;
+                transition: color 0.3s ease; /* Ensure smooth hover */
+                
+                &:hover {
+                    color: $sidebar-bg; 
+                }
+            }
+        }
+    }
+}
+
+.illustrations {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Keep height for spacing */
+    margin-top: 80px;
+    text-align: right; 
+    
+    img {
+        position: absolute;
+        height: auto;
+    }
+
+    /* Positioning the individual images */
+    img:nth-child(1) { /* Pig (Higher and more visible) */
+        width: 150px; 
+        right: 140px; /* Push the pig significantly further left for separation */
+        bottom: 45px; /* Lift the pig much higher */
+        z-index: 2; /* Ensure pig is visually in front of the elephant */
+    }
+    img:nth-child(2) { /* Elephant (Lower, grounding element) */
+        width: 190px; 
+        right: 0px; 
+        bottom: 0px; 
+        z-index: 1; 
+    }
+
+    .illustration-note {
+        @include red-hat-display;
+        font-size: 12px;
+        color: #555; 
+        text-shadow: none; 
+        
+        position: absolute;
+        /* FINAL FIX: Aggressively push the note right and up to clear the elephant */
+        top: -40px; 
+        right: -50px; /* Pushes it 30 pixels past the edge of its container */
+        line-height: 1.4;
+        max-width: 150px; 
+        text-align: right; 
+    }
+}
+
+
+
+.footer {
+  background: $sidebar-bg;
+  color: white;
+  padding: 30px 20px;
+  margin-top: 60px;
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 40px;
+    
+    a {
+      @include handlee-regular;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      transition: color 0.3s ease;
+       text-decoration: none !important;
+       border: none;
+      
+      &:hover {
+        color: $pink-border;
+      }
+
+      i {
+        display: block;
+        /* NEW: Ensure the icon element itself isn't causing a line */
+        text-decoration: none; 
+        border: none;
+      }
+    }
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 25px;
+    
+    a {
+      color: white;
+      font-size: 28px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      
+      &:hover {
+        color: $pink-border;
+        transform: scale(1.1);
+      }
+      
+      i {
+        display: block;
+      }
+    }
+  }
+  
+  .footer-copyright {
+    p {
+      @include handlee-regular;
+      font-size: 18px;
+      color: white;
+      margin: 0;
+    }
+  }
+}
+
+.testimonial-section {
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 2px solid $pink-border;
+    text-align: center;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for cards */
+    gap: 65px;
+    padding: 0 10px;
+}
+
+.testimonial-card {
+    background: $primary-bg;
+    padding: 40px;
+    border-radius: 15px;
+    /* Use a double border effect with box-shadow for a clean, distinct look */ 
+    box-shadow: 0 0 0 6px $sidebar-bg;
+    text-align: left;
+    height: 100%; /* Ensures cards in the grid are equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-text {
+    @include red-hat-display;
+    font-size: 16px;
+    line-height: 1.6;
+    color: black;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.quote-author {
+    @include handlee-regular;
+    font-size: 18px;
+    font-weight: bold;
+    color: $sidebar-bg;
+    text-align: right;
+    margin-top: auto; /* Pushes the author to the bottom */
+}
+
+
+/* === CONTACT FORM STYLES === */
+
+.contact-form-container {
+    padding: 30px;
+    background-color: white; 
+    border-radius: 20px;
+    border: 3px solid $sidebar-bg; 
+    box-shadow: 0 0 0 6px $pink-border; /* Pink border outside the green border */
+    display: flex; /* Helps manage the form and confirmation box layout */
+    flex-direction: column;
+    height: 100%; /* Important for grid alignment */
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    @include red-hat-display;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    @include red-hat-display;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: $pink-border;
+    box-shadow: 0 0 0 2px rgba(255, 192, 203, 0.5); /* Subtle pink glow on focus */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Submit Button Style */
+.submit-btn {
+    @include handlee-regular;
+    /* FIX: Now uses your pre-defined $button-gradient */
+    background: $button-gradient; 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; /* Fully rounded pill button */
+    cursor: pointer;
+    transition: transform 0.1s, background 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    /* Updated hover state: For a pressed look, we'll use a solid color 
+       that is dark green, which you have defined as $sidebar-bg. */
+    background: $sidebar-bg; 
+    /* Hover effect: reduce shadow and move button down */
+    box-shadow: 0 2px 0 $pink-border;
+    transform: translateY(2px);
+}
+
+.submit-btn:active {
+    /* Click effect: remove shadow and fully press button */
+    transform: translateY(4px);
+    box-shadow: none;
+    /* Use a darker green for the pressed effect */
+    background: darken($sidebar-bg, 10%); 
+}
+
+
+/* Confirmation Box Style */
+.confirmation-box {
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.confirmation-box h2 {
+    @include handlee-regular;
+    font-size: 30px;
+    color: $sidebar-bg;
+    margin-bottom: 15px;
+}
+
+.confirmation-box p {
+    @include red-hat-display;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.confirmation-box .close-btn {
+    @extend .submit-btn; /* Reuse the styling of the submit button */
+    max-width: 200px; /* Limit button width in confirmation box */
+}
+
+/* Utility Class */
+.hidden {
+    display: none !important;
+}
+
+// Ensure the contact links are styled as black text
+.contact-details {
+    p {
+        // ... existing styles ...
+        span {
+            // ... existing styles ...
+            a {
+                color: black; 
+                text-decoration: none;
+                transition: color 0.3s ease; 
+                
+                &:hover {
+                    color: $pink-border; 
+                }
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------- */
+/* --- NEW CASE STUDIES PAGE STYLES --- */
+/* ------------------------------------------- */
+
+.case-studies-page {
+    padding: 40px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-text {
+    @include handlee-regular;
+    font-size: 20px;
+    color: black;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Horizontal Divider matching the header */
+.divider {
+    width: 100%;
+    max-width: 900px;
+    height: 2px;
+    background-color: $pink-border;
+    margin: 40px auto;
+}
+
+.case-study-item {
+    margin-bottom: 60px;
+}
+
+.case-study-title {
+    @include handlee-regular;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: $sidebar-bg; /* Dark green for the title */
+    margin-bottom: 15px;
+}
+
+.project-details {
+    @include red-hat-display;
+    font-size: 16px;
+    line-height: 1.6;
+    /* FIX: This was the main container margin. We are moving this spacing 
+            responsibility to the individual paragraphs. */
+    color: #333;
+    margin-bottom: 0; 
+}
+
+
+.project-description {
+    /* Merged properties from .project-meta */
+    @include red-hat-display;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    font-style: normal; /* Ensure no italic */
+    margin-top: 10px;
+    margin-bottom: 25px; /* Existing vertical spacing between paragraphs */
+}
+
+.extra-space-top {
+    margin-top: 15px; 
+}
+
+.project-link {
+    font-weight: bold;
+    color: $sidebar-bg;
+        margin-top: 30px; 
+        margin-bottom: 30px;
+    /* CRITICAL FIX: Anchor tags are inline and ignore vertical margins. Make it a block element. */
+    display: block;
+}
+
+.project-links-group {
+    /* Use flexbox to easily manage stacking */
+    display: flex;
+    flex-direction: column; 
+    
+    /* Sets the small space after the entire link block before the mockups start */
+    margin-bottom: -10px; 
+}
+
+.project-link-label {
+    /* Style for the "Links:" text */
+    font-weight: bold;
+    color: $sidebar-bg;
+    margin-bottom: -10px; /* Small space below the label */
+    margin-top: 10px; /* Separates the links block from the software description above */
+}
+
+.project-link.stacked-link {
+    /* Force links to take up full width to stack */
+    display: block; 
+    
+    /* Reduce vertical space between the links */
+    margin-bottom: -15px; 
+    margin-right: 0; /* Remove previous horizontal margin */
+}
+
+/* Mockup Layout - Desktop Styles (Updated to remove the white box/borders/shadows) */
+.project-mockup {
+    /* --- FIX: Removed white background and box styling from desktop/default view --- */
+    background-color: transparent; 
+    border: none; 
+    box-shadow: none; 
+    border-radius: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden; 
+    position: relative;
+}
+
+
+.desktop-mockup-wrapper {
+    /* Adjusted width to create spacing on desktop */
+    width: 80%; 
+    max-width: 650px;
+    margin-right: 20px; /* Added spacing between desktop and mobile on desktop view */
+    z-index: 5;
+}
+
+.mobile-mockup-wrapper {
+    /* Adjusted width to create spacing on desktop */
+    width: 30%;
+    max-width: 200px;
+    position: relative;
+    top: 20px; 
+    z-index: 15; 
+}
+
+
+.mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Kept a subtle shadow on the images themselves */
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.mockup-spacer {
+    /* Adjust this value to control the vertical distance between the two rows */
+    height: 30px; 
+    width: 100%;
+}
+
+
+.branding-assets {
+    display: grid;
+    /* Two columns: Logo column (1fr) and Animation column (1fr) */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    
+    /* Adds the space below the mockups (project-mockup is above this) */
+    margin-top: 50px; 
+    margin-bottom: 20px;
+    
+    align-items: center; /* Vertically center the items in the row */
+}
+
+.bold-logo-wrapper {
+    /* Logo container on the left */
+    @include flex-center;
+    padding: 20px;
+}
+
+.bold-logo-img {
+    /* Styles for the pink and black logo, maxing out at 250px wide */
+    width: 100%;
+    max-width: 250px; 
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+}
+
+.animation { 
+    /* FIX: Removed @include flex-center; and adjusted display */
+    display: block; 
+    position: relative; 
+    
+    background-color: transparent; 
+    border: none;
+    
+    /* These height values are now critical for reserving the space */
+    height: 250px; 
+    min-height: 250px; 
+    width: 100%;
+    border-radius: 5px;
+    
+    overflow: hidden; 
+}
+
+.bold-animation-video {
+    /* Style for the video element itself */
+    width: 100%;
+    height: 100%; /* CRITICAL: Ensures video fills the 250px container */
+    object-fit: contain; 
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- Control Button Styles --- */
+
+.video-controls {
+    /* Keep position: absolute and z-index to place over video */
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+    display: flex;
+    gap: 10px;
+    z-index: 20; 
+}
+
+
+.video-controls button {
+    /* Reusing your button mixin for consistent style */
+    @include button-style($pink-border, $sidebar-bg, white); 
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%; /* Makes the button round */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        /* Override transform from mixin to prevent movement */
+        transform: none; 
+        background: $sidebar-bg;
+    }
+    
+    i {
+        font-size: 16px;
+    }
+}
+
+
+
+// ---------------------------------------------------------------- //
+// CONSOLIDATED RESPONSIVE DESIGN
+// ---------------------------------------------------------------- //
+
+// --- Tablet/Mid-size Screens (Max-width 992px) ---
+@media (max-width: 992px) {
+  
+  // Header: Collapse navigation for smaller screens
+  .header nav ul {
+    gap: 15px;
+  }
+  .header nav ul li a {
+      font-size: 18px;
+  }
+  
+  // ABOUT PAGE: Collapse info grid to one column
+  .about-main .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  // COMPETENCES PAGE: Collapse the nested list/box grid
+  .comp-main-list-wrapper {
+    grid-template-columns: 1fr; /* List and Box now stack vertically */
+    gap: 20px;
+  }
+  
+  .mmd-definition-box {
+    margin-top: 0; // Reset negative margin
+    align-self: unset;
+    order: 2; 
+  }
+  
+  .competence-list {
+    order: 1; 
+  }
+}
+
+// --- Mobile/Small Screens (Max-width 768px) ---
+@media (max-width: 768px) {
+  
+  // General: Collapse main column layouts
+  .main-content, /* Home Page */
+  .about-content, /* About Page */
+  .comp-content-grid { /* Competences Page */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+    align-items: center; 
+  }
+  
+  // Header: Stack logo and navigation vertically
+  .header {
+    flex-direction: column;
+    padding: 15px 10px;
+  }
+  
+  .header nav ul {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header nav ul li a {
+      font-size: 16px;
+  }
+  
+  // Home Page Sidebar adjustments
+  .sidebar {
+    padding: 20px;
+    order: 2;
+    margin-top: 0;
+    
+    .profile-image {
+      width: 100%;
+      height: auto; 
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  .content {
+    order: 1;
+    padding: 20px;
+  }
+
+  .portfolio-collage {
+    height: auto;
+  }
+  .portfolio-collage .shot {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+    transform: none !important;
+  }
+  
+  // About Page Sidebar adjustments
+  .about-sidebar {
+    order: 2; 
+    margin-top: 0; 
+    padding-top: 0; 
+  }
+  
+  .about-right-content {
+    order: 1;
+    padding-top: 0;
+    padding-right: 0;
+  }
+  
+  // Competences Page adjustments
+  .comp-sidebar {
+    // When stacked vertically (mobile), we don't want it sticky, so we reset here
+    position: static; 
+    order: 2; // Sidebar moves to the bottom
+    margin-top: 0; // Remove negative margin lift
+    padding-top: 0; // Remove header spacing
+  }
+  
+  .comp-main-area {
+    order: 1; // Main content moves to the top
+    padding-top: 0; 
+    padding-right: 0; 
+  }
+
+  // General element size adjustments
+  .comp-sidebar .profile-section .comp-profile-img,
+  .about-sidebar .profile-section .about-profile-img {
+    max-width: 180px;
+    height: 220px;
+  }
+  
+  .brief-bio-section,
+  .mmd-definition-box {
+    padding: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 25px;
+    }
+    
+    .footer-links {
+      flex-direction: column;
+      gap: 15px;
+      
+      a {
+        font-size: 18px;
+      }
+    }
+    
+    .footer-social {
+      a {
+        font-size: 24px;
+      }
+    }
+    
+    .footer-copyright {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* --- Responsive Adjustments for Contact Page --- */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack the columns vertically */
+        padding: 0 20px;
+    }
+
+        .contact-grid > div:nth-child(1) {
+        order: 1;
+    }
+
+    /* Assuming the contact details/illustrations are the second item: Give it order 2 (comes last) */
+    .contact-grid > div:nth-child(2) {
+        order: 2;
+    }
+    
+    .details-and-illustrations {
+        order: -1; /* Move the details column above the form placeholder on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-details {
+        text-align: center;
+    }
+
+   .illustrations {
+        /* Center the illustrations block horizontally */
+        text-align: center; 
+        margin-top: 20px;
+        /* Keep height, but allow images to center */
+        height: 150px; 
+    }
+
+    .illustrations img {
+        /* Remove absolute positioning to place them in the document flow */
+        position: relative; 
+        display: inline-block; /* Allows them to be centered by text-align: center */
+        
+        /* Reset positioning inherited from desktop */
+        right: unset; 
+        bottom: unset;
+        
+        /* Reset Z-index */
+        z-index: 0;
+
+        /* Set a fixed size without !important */
+        width: 100px;
+        height: auto;
+        
+        /* Ensure they are displayed inline next to each other */
+        margin: 0 5px; 
+    }
+
+        .illustrations img:nth-child(1),
+    .illustrations img:nth-child(2) {
+        width: 100px; /* Ensure specific selectors don't block the width */
+        right: unset;
+        bottom: unset;
+    }
+}
+
+@media (max-width: 992px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on tablet/mobile */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .case-studies-page {
+        padding: 10px 20px;
+    }
+
+    .project-mockup {
+        /* Reset background, border, and shadow to remove the "white box" */
+        background-color: transparent; 
+        border: none;
+        box-shadow: none; 
+        padding: 0; /* Remove padding */
+        
+        /* Arrange the mockups side-by-side horizontally for mobile */
+        flex-direction: row; 
+        justify-content: space-evenly; /* Creates space between them */
+        align-items: flex-start;
+    }
+
+    .desktop-mockup-wrapper,
+    .mobile-mockup-wrapper {
+        /* Adjust width to fit two elements side-by-side with spacing */
+        width: 48%; 
+        max-width: none;
+        margin: 0; 
+        top: 0;
+    }
+    
+    .mobile-mockup-wrapper {
+        margin-top: 0; 
+    }
+
+    .mockup-label {
+        position: static;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) { 
+  // ... (other media query styles) ...
+  
+  /* Add this inside the @media (max-width: 768px) block */
+  .branding-assets {
+      /* Stack the logo and animation vertically on mobile */
+      grid-template-columns: 1fr;
+      gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+    .ladybalance-mockup {
+        /* Stack all components vertically on mobile, like the other case studies */
+        grid-template-columns: 1fr;
+    }
+}
