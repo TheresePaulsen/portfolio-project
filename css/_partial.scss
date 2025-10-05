@@ -1,39 +1,20 @@
-// Variables 
-$primary-bg: #FFE1A6;
-$sidebar-bg: #1F4D33;
-$hover-link: #1F4D33; 
-$pink-border: #EA9377;
-$hover-color: #FFE1A6;
-$info-card: #FFD2C3;
-$button-gradient: linear-gradient(to bottom, #EA9377, #508E65);
+// Variables, Mixins, and Placeholders
 
-// Mixins
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// ========================================
+// VARIABLES
+// ========================================
 
-@mixin button-style($bg-color, $hover-color, $text-color: black) {
-  background: $bg-color;
-  color: $text-color;
-  text-decoration: none;
-  @include handlee-regular;
-  text-align: center;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  display: inline-block; 
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  
-  &:hover {
-    background: $hover-color;
-    transform: scale(1.05);
-  }
-}
+$primary-bg: #ffe1a6;
+$sidebar-bg: #1f4d33;
+$hover-link: #1f4d33;
+$pink-border: #ea9377;
+$hover-color: #ffe1a6;
+$info-card: #ffd2c3;
+$button-gradient: linear-gradient(to bottom, #ea9377, #508e65);
+
+// ========================================
+// FONT MIXINS
+// ========================================
 
 @mixin lobster-font {
   font-family: "Lobster", sans-serif;
@@ -52,4 +33,124 @@ $button-gradient: linear-gradient(to bottom, #EA9377, #508E65);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+// ========================================
+// UTILITY MIXINS
+// ========================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-style($bg-color, $hover-color, $text-color: black) {
+  background: $bg-color;
+  color: $text-color;
+  text-decoration: none;
+  @include handlee-regular;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    background: $hover-color;
+    transform: scale(1.05);
+  }
+}
+
+// ========================================
+// LAYOUT MIXINS
+// ========================================
+
+@mixin centered-text-block($max-width: 700px, $margin-bottom: 20px) {
+  text-align: center;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $margin-bottom;
+}
+
+@mixin two-column-layout($sidebar-width: 300px, $gap: 40px) {
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
+  gap: $gap;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+// ========================================
+// COMPONENT MIXINS
+// ========================================
+
+@mixin profile-image($width: 250px, $height: 400px) {
+  width: 100%;
+  max-width: $width;
+  height: $height;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@mixin info-box($bg-color: $info-card, $border-color: $pink-border, $padding: 20px) {
+  background: $bg-color;
+  padding: $padding;
+  border-radius: 10px;
+  border: 3px solid $border-color;
+}
+
+@mixin custom-bullet($color: $sidebar-bg, $size: 16px) {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 15px;
+
+    &:before {
+      content: "•";
+      color: $color;
+      font-size: $size;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+@mixin mockup-wrapper($width, $max-width) {
+  width: $width;
+  max-width: $max-width;
+  position: relative;
+}
+
+// ========================================
+// PLACEHOLDER SELECTORS
+// ========================================
+
+%sidebar-base {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 40px;
+
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .download-cv-btn {
+      @include button-style($button-gradient, $sidebar-bg, white);
+      padding: 10px 25px;
+      margin-top: 20px;
+    }
+  }
 }
